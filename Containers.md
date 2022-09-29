@@ -21,3 +21,11 @@
 - São encontradas no http://hub.docker.com
 
 - Além de apresentar as imagens, lá é ensinado a como utilizá-las.
+
+## Containers x VM
+
+   - O armazenamento de um container é bem menor que uma VM. 
+
+   - VM's podem executar diversas funções ao mesmo tempo, porém exigem mais da máquina, tanto em memória quanto em armazenamento. 
+
+   - Containers gastam menos recursos por executarem um uso específico, por isolar a função desejada pelo usuário. 
