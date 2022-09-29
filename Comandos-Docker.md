@@ -94,6 +94,15 @@
    - *docker login*  ::  faz o login com sua conta dockerhub.
 
 
+## Enviando imagens para o dockerhub
+
+   - *docker push <imagem>*  ::  envia uma imagem para o docker hub atrelado a conta vinculada na máquina. Como no github, tem que criar um repositório remoto no dockerhub para poder enviar. 
+   
+   - OBS: ao enviar uma imagem para o dockerhub, o nome do usuário faz parte do nome do repositório. Então, ao criar com o comando ***docker build -t nome:tag <path_do_dockerfile>*** a imagem que será 'pushada' para o dockerhub, ela deve ter o mesmo nome do repositório. Exemplo: nome_repositorio = gustavobastos/nodeteste, nome da imagem = gustavobastos/nodeteste.
+
+   - OBS2: caso eu queira atualizar minha imagem primeiro é necessário fazer o build dela novamente, trocando a tag da imagem informando que aquela é uma versão atualizada. Depois, basta fazer o push normalmente, assim todas as versões estaram disponíveis no dockerhub para serem baixadas.
+
+
 ## Logout com o Dockerhub
 
    - *docker logout*  ::  faz o logout com a conta dockerhub, não permitindo enviar imagens pois não é mais autenticado.
