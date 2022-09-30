@@ -9,6 +9,8 @@
   --name  ::  define um nome para o container.
 
    -it  ::  Já com a adição da flag '-it' a imagem passa a ser iterativa. Exemplo: docker run -it ubuntu, rodará a imagem oficial que está no hub.docker.com para o ubuntu, fornecendo um terminal linux de imediato sem precisar ter o ubuntu na máquina.
+
+   -v  ::  para criar um volume anônimo usamos "docker run -v /data <container>" onde /data é o diretório que contém o volume anônimo. Também há a possibilidade para de dar nomes para esses volumes colocando "nome_do_volume:" antes do diretório. Exemplo: "docker run -v volume_name:/data <container>". OBS: ao criar volumes nomeados, esse diretório informado na linha de comando deve ser o mesmo que o WORKDIR no Dockerfile + a pasta onde será salvo na sua máquina. Exemplo: WORKDIR = /var/www/html/, diretório na máquina = /messages -> "docker run -v nome_volume:/var/www/html/messages <container>". Para armazenar os valores na nossa máquina, utilizamos o volume Bind Mounts, para isso digitamos "docker run -v /dir/data:/data <container>", sendo o /dir/data o diretório da sua máquina onde está o projeto e o /data o diretório do volume exatamente igual a um volume nomeado retirando somente a última pasta do caminho. També m há a possibilidade de configurar o conteúdo do volume para ser read-only, colocando ':ro" após o diretório na flag -v.
   ```
 
 
@@ -143,4 +145,28 @@
 
 ## Removendo imagens e containers
 
-   - *docker system prune*  ::  remove imagens, containers e networks não utilizado.
+   - *docker system prune*  ::  remove imagens, containers e networks não utilizado. OBS: o comando prune remove algo em massa podendo ser imagens, containers, volumes, networks.
+
+
+## Listar volumes
+
+   - *docker volume ls*  ::  lista os volumes.
+
+
+## Criando volume
+
+   - *docker volume create <nome>*  ::  cria um volume nomeado.
+
+
+## Listando redes
+
+   - *docker network ls*  ::  lista as networks existentes.
+
+## Criando rede
+
+   - *docker network create <nome>*  ::  cria uma rede, bridge por padrão.
+
+
+## Removendo rede
+
+   - *docker network rm <nome>*  :: remove uma rede. OBS: devemos tomar cuidado com os containers já conectados.
