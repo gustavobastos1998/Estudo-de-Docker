@@ -26,7 +26,7 @@
 
    - Bridge: o mais comum e padrão do Docker, utilizado para conectar containers entre si.
 
-   - Host: conexão entre a máquina hosteando o Docker e o container
+   - Host: conexão entre a máquina hosteando o Docker e o container. Ip de host utilizamos: host.docker.internal
 
    - macvlan: conexão a um container por um MAC address.
 
