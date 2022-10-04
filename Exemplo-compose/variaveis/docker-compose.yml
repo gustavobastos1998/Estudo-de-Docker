@@ -1,0 +1,24 @@
+version: '3.3'
+
+services:
+  db: # container de mysql
+    image: mysql:5.7 # no arquivo Dockerfile é equivalente ao FROM mysql:5.7
+    volumes: 
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: 
+      - ./config/db.env
+
+  wordpress: 
+    depends_on:
+      - db
+    image: wordpress:latest
+    ports: 
+      - "8000:80"
+    restart: always
+    env_file: 
+      - ./config/wp.env
+
+# é necessário criar uma chave 'volumes' pois é necessário declarar todos os volumes declados na aplicaçao
+volumes: 
+  db_data: {}
