@@ -1,2 +1,37 @@
+# Instruções para o programa
 nome: "Gustavo"
 idade: 23
+
+# Objeto que descreve o projeto
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
+
+string: texto qualquer
+string_dois: "texto tambem aceito"
+
+nulo: ~
+nulo_dois: null
+
+verdadeiro: True
+verdadeiro_dois: On
+
+falso: False
+falso_dois: Off
+
+array: [1,2,3,4]
+array_dois: 
+  - "teste"
+  - 10
+  - outro teste
+  - Off
+
+obj: {a: 1, b: 2, c: 3, d: texto, obj_int: {e: True, f: False}}
+
+objeto: 
+ a: 1
+ b: 2
+ c: Off
+ objeto_interno: 
+  d: 3
+  e: 32.3
