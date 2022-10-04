@@ -51,3 +51,10 @@
    - Isso elimina o processo de ter que dar o build nas imagens que estão sendo utilizadas pelo compose
 
    - Para isso, basta usar a chave 'build' dentro de cada service e informar o diretório onde será feito o build
+
+
+## Bind mount no compose
+
+   - O volume bind mount garante atualização em tempo real dos arquivos do container
+
+   - Pode ser colocado no projeto do compose
