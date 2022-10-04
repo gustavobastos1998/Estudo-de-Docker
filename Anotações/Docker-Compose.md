@@ -42,3 +42,12 @@
    - Assim, somente conectamos os containers que optarmos
 
    - Podemos definir drivers(networks) diferentes também
+
+
+## Build no compose
+
+   - Podemos gerar o build das imagens dos serviços do compose dentro dele mesmo
+
+   - Isso elimina o processo de ter que dar o build nas imagens que estão sendo utilizadas pelo compose
+
+   - Para isso, basta usar a chave 'build' dentro de cada service e informar o diretório onde será feito o build
