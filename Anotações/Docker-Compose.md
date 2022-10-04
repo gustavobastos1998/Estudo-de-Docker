@@ -31,3 +31,14 @@
    - Podem ser chamadas pela sintaxe: ${VARIAVEL}
 
    - Essa técnica é útil quando o dado é sensível ou não pode ser compartilhado, como uma senha, pois essas informações vão no arquivo de criação do docker compose.
+
+
+## Redes em compose
+
+   - Por padrão, o compose cria networks bridge entre os containers da aplicação
+
+   - Podemos isolar as redes com a chave networks
+
+   - Assim, somente conectamos os containers que optarmos
+
+   - Podemos definir drivers(networks) diferentes também
