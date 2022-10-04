@@ -58,3 +58,10 @@
    - O volume bind mount garante atualização em tempo real dos arquivos do container
 
    - Pode ser colocado no projeto do compose
+
+
+## Verificando o que tem no compose
+
+   - *docker compose ps*  ::  recebemos um resumo dos serviços que sobem ao rodar o compose
+
+   - Usado para avaliar de maneira prática o projeto
