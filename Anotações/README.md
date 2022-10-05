@@ -1,1 +1,0 @@
-Este repositório tem como finalidade armazanar informações teórias e práticas de Docker. Curso de Docker da Udemy lecionado por Matheus Battisti.
