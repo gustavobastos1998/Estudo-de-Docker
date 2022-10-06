@@ -20,3 +20,8 @@
    - *Services*: serviços que expõem os Pods ao mundo externo.
 
    - *Kubectl*: cliente de linha de comando para o Kubernetes.
+
+
+## Minikube 
+
+   - Espécie de simulador de kubernetes, para não precisarmos de vários computadores/servidores.
