@@ -24,9 +24,9 @@
 
 ## Minikube 
 
-<<<<<<< HEAD
+
    - Espécie de simulador de kubernetes, para não precisarmos de vários computadores/servidores.
-=======
+
    - Espécie de simulador de kubernetes, para não precisarmos de vários computadores/servidores. Ferramenta necessária para poder utilizar a orquestração da orquestração de containers.
 
 
@@ -121,4 +121,4 @@
 ## Gerando ip de acesso
 
    - *minikube service <NOME>*  ::  gera um ip que aparece no terminal e também uma aba no navegador é aberta com o projeto. Desta maneira, temos um projeto rodando pelo kubernetes. Esse NOME deve ser o mesmo que é utilizado na criação do deployment.
->>>>>>> f3792df2054cf634a30b961ec34646f79faa1f59
+
