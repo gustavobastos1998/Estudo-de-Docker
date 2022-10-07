@@ -24,7 +24,7 @@
 FROM: imagem base 
 WORKDIR: diretório onde o projeto será executado
 EXPOSE: expõe a porta de uma imagem, por meio dessa porta, podemos expor o container para podermos acessar.
-COPY: copia certos arquivos para dentro da imagem para poder executar o container. Esses arquivos serão copiados na pasta indicada no WORKDIR.
+COPY: copia certos arquivos para dentro da imagem para poder executar o container. Esses arquivos serão copiados na pasta indicada no WORKDIR. Exemplo: COPY . . -> copia todos os arquivos no nivel do Dockerfile para o diretório informado pelo WORKDIR.
 RUN: executa comandos durante a criação das camadas da imagem. Pode ser utilizado diversas vezes. Exemplo, RUN apt-get update, executa esse comando durante a criação da imagem para a imagem que será utilizada por um container ter o linux atualizado.
 CMD: muito parecido com o RUN só que ele executa o comando apenas quando criamos o container.
 ```
