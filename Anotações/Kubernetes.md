@@ -122,3 +122,102 @@
 
    - *minikube service <NOME>*  ::  gera um ip que aparece no terminal e também uma aba no navegador é aberta com o projeto. Desta maneira, temos um projeto rodando pelo kubernetes. Esse NOME deve ser o mesmo que é utilizado na criação do deployment.
 
+
+## Verificando serviços
+
+   - *kubectl get services*  ::  obtem detalhes dos serviços criados
+
+   - *kubectl describe services/<NOME>*  :: descreve com mais detalhes um serviço específico.
+
+
+## Replicando aplicação
+
+   - *kubectl scale deployment/<NOME> --replicas=<NUMERO>*  ::  replica a aplicação para outros pods. Usar o comando ***minikube dashboard*** para verificar as mudanças na orquestração.
+
+
+## Verificar número de réplicas
+
+   - *kubectl get rs*  ::  checa o número de réplicas, desta maneira temos o status das réplicas do projeto.
+
+
+## Diminuir número de réplicas
+
+   - *kubectl scale deployment/<NOME> --replicas=<NUMERO_MENOR>*  ::  o comando é o mesmo para replicar o deployment, porém basta diminuir o número de réplicas, o kubernetes se encarrega de reduzir o número de servidores da orquestração.
+
+
+## Atualizar imagem
+
+   - *kubectl set image deployment/<NOME> <NOME_CONTAINER>=<NOVA_IMAGEM>*  ::  atualiza a imagem. Para isso, devemos ir atrás do nome do container que é dado pelo dashboard dentro do Pod, devemos pegar o node manager(control plane), desta maneira, ao atualizar o control plane os os nodes serão atualizados após a atualização. Outro detalhe é que a nova imagem deve ser outra versão que a atual, devido a isso, devemos subir uma outra versão da nossa imagem no dockerhub com uma nova tag.
+
+
+## Desfazer alteração
+
+   - *kubectl rollout undo deployment/<NOME>*  ::  desfaz uma alteração. Para verificarmos uma alteração utilizamos ***kubectl rollout status deployment/<NOME>***. Se utilizarmos em conjunto com ***kubectl get pods*** é possível indentificar problemas. Esses problemas seriam por exemplo, a alteração para uma imagem que não existe, o comando de update da nova imagem não aponta erro, porém quando as imagens forem inseridas aos pods percebemos que, com auxilio do comando ***kubectl get pods*** que os status deles estão apontando um erro.
+
+
+## Deletar serviço
+
+   - *kubectl delete service <NOME>*  ::  deleta o serviço do kubernetes, desta maneira os Pods não terão mais conexão externa. Portanto, não teremos mais acesso a eles. 
+
+
+## Deletar um Deployment
+
+   - *kubectl delete deployment <NOME>*  ::  deleta um deployment, desta forma paramos os pods.
+
+
+## Modo Declarativo
+
+   - Semelhante ao Docker Compose, guiado por um arquivo.
+
+   - Torna as configurações mais simples, já que o comando indicará o arquivo que deverá ser lido.
+
+   - YAML também é utilizado para escrever o arquivo de kubernetes.
+
+
+## Chaves mais utilizadas
+
+   - apiVersion: versão da ferramenta utilizada
+   - kind: tipo do arquivo (deployment, service)
+   - metadata: descreve algum objeto, inserindo chaves como name
+   - replicas: número de réplicas de nodes/pods
+   - containers: definir as especificações de containers como: nome e imagem
+
+
+## Executando arquivo de Deployment
+
+   - *kubectl apply -f <arquivo>*  ::  executa o arquivo de deployment. Tem que garantir que o minikube está rodando.
+
+
+## Parando o Deployment de modo declarativo
+
+   - *kubectl delete -f <arquivo>*  ::  para a execução do deployment baseado no arquivo, o pods são excluídos e os serviços finalizados. O kubernetes entende qual deployment parar graças ao arquivo passado por parâmetro.
+
+
+## Executando service de modo declarativo
+
+   - *kubuctl apply -f <arquivo>*  ::  idêntico ao deployment, porém no corpo do arquivo o kind dele é diferente.
+
+
+## Parando serviço de modo declarativo
+
+   - *kubectl delete -f <arquivo>*  :: idêntico ao deploymente, deleta o serviço. Não apaga os pods, porém não tem mais acesso ao serviço no navegador.
+
+
+## Atualizando o projeto no modo declarativo
+
+   - Primeiramente cria uma nova versão e sobe no dockerhub.
+
+   - Depois basta alterar no arquivo de deployment a tag e reaplicar o comando de apply.
+
+
+## Unindo arquivo do projeto
+
+   - Precisa unir o deployment e o serviço em um arquivo
+
+   - A separação de objetos (deployment e service) para o YAML é com ---. Na hora da criação do arquivo yaml, basta colocar "---" antes e depois de todo o corpo para o service e deployment.
+
+   - Desta maneira cada um deles será executado.
+
+   - Colocar service antes de deployment (boa prática)!
+
+   - Muito útil para salvar tempo, pois só precisa de um comando para rodar o projeto todo. Desta maneira só precisa dar apply no arquivo que une o deployment e service.
