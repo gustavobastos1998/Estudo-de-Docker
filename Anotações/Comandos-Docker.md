@@ -165,10 +165,6 @@
 
    - *docker network create <nome>*  ::  cria uma rede, bridge por padrão.
 
-   ### Flags *create*
-
-   - --driver  ::  especifica o tipo de network criado
-
 
 ## Removendo rede
 
